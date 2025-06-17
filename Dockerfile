@@ -11,7 +11,7 @@ RUN mvn package
 
 FROM openjdk:25-ea-17-jdk
 
-COPY --from=builder /void-generator/target/*.jar .
+COPY --from=builder /void-generator/target/*.jar ./
 COPY --from=builder /void-generator/target/void-generator-*uber.jar void-generator.jar
 
 CMD ["java", "-jar", "void-generator.jar"]
